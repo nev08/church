@@ -1,0 +1,45 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.churchpay"  // Defines your app's namespace
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion flutter.minSdkVersion
+        targetSdk = flutter.targetSdkVersion
+        applicationId = "com.example.churchpay"
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"  // Ensure Kotlin compatibility with Java 1.8
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug  // Use debug signing for now
+        }
+    }
+}
+
+dependencies {
+    implementation "com.google.android.material:material:1.4.0"  // Example, if needed// Add the UPI Pay plugin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10"  // Ensure Kotlin version matches
+
+    // Optional if you're using Flutter dependencies
+    flutter {
+        source = "../.."
+    }
+}
